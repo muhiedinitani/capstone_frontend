@@ -1,8 +1,8 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Home from '../views/Home.vue'
-import Search from '../views/Search.vue'
-import Results from '../views/Results.vue'
+import homeComponent from '../views/homeComponent.vue'
+import searchComponent from '../views/searchComponent.vue'
+import resultsComponent from '../views/resultsComponent.vue'
 
 Vue.use(VueRouter)
 
@@ -10,17 +10,17 @@ const routes = [
   {
     path: '/',
     name: 'Home',
-    component: Home
+    component: homeComponent
   },
   {
     path: '/search',
     name: 'Search',
-    component: Search
+    component: searchComponent
   },
   {
     path: '/nearby_resorts',
     name: 'Results',
-    component: Results
+    component: resultsComponent
   },
   {
     path: '/about',

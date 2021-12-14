@@ -1,5 +1,5 @@
 <template>
-  <div class="doesn't matter">
+  <div class="results">
     <h1>{{ message }}</h1>
     <p>You searched: {{ searchQuery }}</p>
     <div v-for="result in results" v-bind:key="result.id">
