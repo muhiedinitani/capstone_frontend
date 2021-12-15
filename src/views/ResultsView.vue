@@ -3,11 +3,13 @@
     <h1>{{ message }}</h1>
     <p>You searched: {{ searchQuery }}</p>
     <div v-for="result in results" v-bind:key="result.id">
-    <div> {{result.name}} </div>
-    <div> {{result.official_website}} </div>
-    <div> {{result.lat}} </div>
-    <div> {{result.lng}} </div>
-    <button v-on:click="search()">See more info</button>
+    <div> name: {{result.name}} </div>
+    <div> resort id: {{result.id}} </div>
+    <div> distance: {{result.distance}} </div>
+    <div> official_website: {{result.official_website}} </div>
+    <div> lat: {{result.lat}} </div>
+    <div> lng: {{result.lng}} </div>
+    <button v-on:click="resortsShow(result.id)">See more info</button>
     <hr>
     </div>
   </div>
@@ -40,6 +42,10 @@ export default {
         console.log("search results:", response.data);
         this.results = response.data
       })
+    },
+    resortsShow: function(resultId) {
+      console.log("resort id:", resultId)
+      this.$router.push("/resorts/" + resultId);
     }
   },
 };
