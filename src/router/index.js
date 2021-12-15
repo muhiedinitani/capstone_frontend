@@ -3,6 +3,7 @@ import VueRouter from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import SearchView from '../views/SearchView.vue'
 import ResultsView from '../views/ResultsView.vue'
+import TripsView from '../views/TripsView.vue'
 
 Vue.use(VueRouter)
 
@@ -21,6 +22,11 @@ const routes = [
     path: '/nearby_resorts',
     name: 'Results',
     component: ResultsView
+  },
+  {
+    path: '/trips',
+    name: 'Trips',
+    component: TripsView
   },
   {
     path: '/about',

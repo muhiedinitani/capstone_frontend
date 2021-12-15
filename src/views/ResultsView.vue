@@ -26,11 +26,11 @@ export default {
     };
   },
   created: function () {
-    this.searchParamsGetter();
+    this.searchQueryGetter();
     this.displayResults();
   },
   methods: {
-    searchParamsGetter: function() {
+    searchQueryGetter: function() {
       console.log("query:", this.$route.query.address)
       this.searchQuery = this.$route.query.address
     },
