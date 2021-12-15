@@ -4,6 +4,7 @@ import HomeView from '../views/HomeView.vue'
 import SearchView from '../views/SearchView.vue'
 import ResultsView from '../views/ResultsView.vue'
 import TripsView from '../views/TripsView.vue'
+import ResortsShow from '../views/ResortsShow.vue'
 
 Vue.use(VueRouter)
 
@@ -27,6 +28,11 @@ const routes = [
     path: '/trips',
     name: 'Trips',
     component: TripsView
+  },
+  {
+    path: '/resorts/:id',
+    name: 'ResortsShow',
+    component: ResortsShow
   },
   {
     path: '/about',

@@ -7,6 +7,7 @@
     <div> {{result.official_website}} </div>
     <div> {{result.lat}} </div>
     <div> {{result.lng}} </div>
+    <button v-on:click="search()">See more info</button>
     <hr>
     </div>
   </div>
