@@ -1,7 +1,11 @@
 <template>
   <div class="resortsShow">
     <h1>{{ message }}</h1>
-    <h1>{{ resort }}</h1>
+    <p>{{ resort.name }}</p>
+    <p>{{ resort.official_website }}</p>
+    <p>{{ resort.lat }}</p>
+    <p>{{ resort.lng }}</p>
+    <button>See dates</button>
   </div>
 </template>
 
