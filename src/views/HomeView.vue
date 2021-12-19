@@ -1,13 +1,13 @@
 <template>
   <div class="home">
     <h1>{{ message }}</h1>
-    <div v-for="resort in resorts" v-bind:key="resort.id">
+    <!-- <div v-for="resort in resorts" v-bind:key="resort.id">
     <div> {{resort.name}} </div>
     <div> {{resort.official_website}} </div>
     <div> {{resort.lat}} </div>
     <div> {{resort.lng}} </div>
     <hr>
-    </div>
+    </div> -->
   </div>
 </template>
 

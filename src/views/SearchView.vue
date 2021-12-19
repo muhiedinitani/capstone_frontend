@@ -1,12 +1,18 @@
 <template>
-  <div class="search">
+  <section id="search">
+  <div class="container">
     <h1>{{ message }}</h1>
     <p><input v-model="searchQuery"></p>
     <p><button v-on:click="search()">Search!</button></p>
   </div>
+  </section>
 </template>
 
-<style></style>
+<style>
+h1 {text-align: center;}
+p {text-align: center;}
+div {text-align: center;}
+</style>
 
 <script>
 import axios from "axios";
