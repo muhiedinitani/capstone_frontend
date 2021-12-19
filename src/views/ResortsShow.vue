@@ -5,7 +5,10 @@
     <p>{{ resort.official_website }}</p>
     <p>{{ resort.lat }}</p>
     <p>{{ resort.lng }}</p>
-    <button>See dates</button>
+    <input v-model="userInputDate" type="date">
+    <!-- <b-calendar></b-calendar> -->
+    <!-- <button>See dates</button> -->
+    <!-- Brian helped me put a calendar straight from HTML. Time for theme. Install theme, have a functionality to save trip, implement weather data api and we're done. get this done asap. -->
   </div>
 </template>
 
@@ -19,6 +22,7 @@ export default {
     return {
       message: "Welcome to Vue.js!",
       resort: [],
+      userInputDate: "2021-12-06"
     };
   },
   created: function () {
