@@ -31,9 +31,9 @@ export default {
         this.lng = response.data["lng"];
         console.log(this.lat,this.lng);
         // this.$router.push("/nearby_resorts?address=" + this.searchQuery);
-      });
-      axios.get(`/nearby_search?location=${this.lat},${this.lng}`).then(response => {
-        console.log(response.data);
+        axios.get(`/nearby_search?location=${this.lat},${this.lng}`).then(response => {
+          console.log(response.data);
+        });
       });
     }
   },
