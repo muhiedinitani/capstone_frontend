@@ -2,14 +2,12 @@
   <div class="results">
     <h1>{{ message }}</h1>
     <p>You searched: {{ searchQuery }}</p>
-    <div v-for="result in results" v-bind:key="result.id">
-    <div> name: {{result.name}} </div>
-    <div> resort id: {{result.id}} </div>
-    <div> distance: {{result.distance}} </div>
-    <div> official_website: {{result.official_website}} </div>
-    <div> lat: {{result.lat}} </div>
-    <div> lng: {{result.lng}} </div>
-    <button v-on:click="resortsShow(result.id)">See more info</button>
+    <div v-for="nearbySearchResult in nearbySearchResults" v-bind:key="nearbySearchResult.id">
+    <div> name: {{nearbySearchResult.name}} </div>
+    <div> place_id: {{nearbySearchResult.place_id}} </div>
+    <div> rating: {{nearbySearchResult.rating}} stars </div>
+    <p></p>
+    <button v-on:click="placeDetails(nearbySearchResult.place_id)">See more info</button>
     <hr>
     </div>
   </div>
@@ -25,27 +23,31 @@ export default {
     return {
       message: "Welcome to the Results page",
       searchQuery: [],
-      results: []
+      nearbySearchResults: [],
+      placeIds: []
     };
   },
   created: function () {
     this.searchQueryGetter();
-    this.displayResults();
+    this.nearbySearch();
   },
   methods: {
     searchQueryGetter: function() {
-      console.log("query:", this.$route.query.address)
-      this.searchQuery = this.$route.query.address
+      console.log("query:", this.$route.query.location)
+      this.searchQuery = this.$route.query.location
     },
-    displayResults: function() {
-      axios.get("/nearby_resorts?address=" + this.searchQuery).then(response => {
-        console.log("search results:", response.data);
-        this.results = response.data
-      })
+    nearbySearch: function() {
+      axios.get(`/nearby_search?location=${this.searchQuery}`).then(response => {
+        console.log("nearby search results:", response.data);
+        this.nearbySearchResults = response.data
+      });
+      // this.nearbySearchResults.forEach(function(nearbySearchResult) {
+      //   this.placeIds.push(nearbySearchResult["place_id"]);
+      // })
     },
-    resortsShow: function(resultId) {
-      console.log("resort id:", resultId)
-      this.$router.push("/resorts/" + resultId);
+    placeDetails: function(place_id) {
+      console.log("place_id:", place_id)
+      this.$router.push(`/place_details?place_id=${place_id}`);
     }
   },
 };

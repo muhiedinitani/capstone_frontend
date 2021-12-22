@@ -24,15 +24,15 @@ export default {
   created: function () {},
   methods: {
     search: function () {
-      // axios.get("/nearby_resorts?address=" + this.searchQuery).then(response => {
+      // axios.get("/nearby_resorts?address=" + this.searchQuery).then(response => { -------- string interpolation. i will be using concatenation as seen below:
       axios.get(`/get_location?address=${this.searchQuery}`).then(response => {
         console.log(response.data);
         this.lat = response.data["lat"];
         this.lng = response.data["lng"];
         console.log(this.lat,this.lng);
-        // this.$router.push("/nearby_resorts?address=" + this.searchQuery);
         axios.get(`/nearby_search?location=${this.lat},${this.lng}`).then(response => {
-          console.log(response.data);
+          console.log("lat,lng:", response.data);
+          this.$router.push(`/nearby_search?location=${this.lat},${this.lng}`);
         });
       });
     }

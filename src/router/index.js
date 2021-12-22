@@ -20,7 +20,7 @@ const routes = [
     component: SearchView
   },
   {
-    path: '/nearby_resorts',
+    path: '/nearby_search',
     name: 'Results',
     component: ResultsView
   },
@@ -30,7 +30,7 @@ const routes = [
     component: TripsView
   },
   {
-    path: '/resorts/:id',
+    path: '/place_details/:place_id?',
     name: 'ResortsShow',
     component: ResortsShow
   },

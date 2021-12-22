@@ -1,10 +1,7 @@
 <template>
   <div class="resortsShow">
     <h1>{{ message }}</h1>
-    <p>{{ resort.name }}</p>
-    <p>{{ resort.official_website }}</p>
-    <p>{{ resort.lat }}</p>
-    <p>{{ resort.lng }}</p>
+    <p>{{ placeDetailsResult.name }}</p>
     <input v-model="userInputDate" type="date">
     <!-- <b-calendar></b-calendar> -->
     <!-- <button>See dates</button> -->
@@ -20,21 +17,26 @@ import axios from "axios"
 export default {
   data: function () {
     return {
-      message: "Welcome to Vue.js!",
-      resort: [],
-      userInputDate: "2021-12-06"
+      message: "Welcome to the Place Details Page",
+      placeDetailsResult: [],
+      userInputDate: ""
     };
   },
   created: function () {
-    this.resortsShow();
+    this.placeDetails();
   },
   methods: {
-    resortsShow: function () {
-      console.log("you are viewing one resort")
-      axios.get("/resorts/" + this.$route.params.id).then(response => {
-        console.log("resort data:", response.data)
-        this.resort = response.data
-      })
+    placeDetails: function () {
+      console.log("you are viewing one resort", this.$route)
+      axios.get(`${this.$route.fullPath}`).then(response => {
+        console.log("results:", response.data);
+        this.placeDetailsResult = response.data
+      });
+      // console.log(this.$route)
+      // axios.get("/resorts/" + this.$route.params.id).then(response => {
+      //   console.log("resort data:", response.data)
+      //   this.resort = response.data
+      // })
     }
   },
 };
