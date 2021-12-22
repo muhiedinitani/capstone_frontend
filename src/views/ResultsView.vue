@@ -6,6 +6,7 @@
     <div> name: {{nearbySearchResult.name}} </div>
     <div> place_id: {{nearbySearchResult.place_id}} </div>
     <div> rating: {{nearbySearchResult.rating}} stars </div>
+    <img src="https://www.planetware.com/photos-large/I/italy-skiing-skies-and-mountains.jpg">
     <p></p>
     <button v-on:click="placeDetails(nearbySearchResult.place_id)">See more info</button>
     <hr>
@@ -23,8 +24,7 @@ export default {
     return {
       message: "Welcome to the Results page",
       searchQuery: [],
-      nearbySearchResults: [],
-      placeIds: []
+      nearbySearchResults: []
     };
   },
   created: function () {
@@ -41,9 +41,6 @@ export default {
         console.log("nearby search results:", response.data);
         this.nearbySearchResults = response.data
       });
-      // this.nearbySearchResults.forEach(function(nearbySearchResult) {
-      //   this.placeIds.push(nearbySearchResult["place_id"]);
-      // })
     },
     placeDetails: function(place_id) {
       console.log("place_id:", place_id)
